@@ -5,14 +5,16 @@
 # 2) update this script (the relative_paths variable)
 
 # put here the RELATIVE paths of the files/folders to be backed up, white-space separated
-
-relative_paths=("ICGC")
-cd /scratch/cancgene/$USER/
+relative_paths=("*")
+cd /scratch/DGE/OGENETIC/$USER
 
 for path in "${relative_paths[@]}"
 do
-	echo "executing: rsync -aWvru --relative $path davros-gw1:/scratch/DGE/OGENETIC/$USER/"
-	rsync -aWvPru --relative $path davros-gw1:/scratch/DGE/OGENETIC/$USER/
+	# backup from Cyberman to Davros:
+	# rsync -aWvPru --relative $path davros-gw1:/scratch/DGE/OGENETIC/$USER/
+	# backup to RDS:
+	rsync -aWvPru --relative $path davros-gw1:/data/rds/DGE/DUDGE/OGENETIC/$USER
+	# rsync -aWv $path /data/rds/DGE/DUDGE/OGENETIC/$USER
 done
 
 echo "Exiting..."
@@ -20,6 +22,6 @@ echo "Exiting..."
 
 # 3) add a cronjob
 # crontab -e
-# 0 0 * * * sh /scratch/cancgene/eanokian/backup.sh
+# 0 0 * * * sh /path/to/Miscellaneous/backup.sh
 # or
-# @daily sh /scratch/cancgene/eanokian/backup.sh
+# @daily sh /path/to/Miscellaneous/backup.sh
