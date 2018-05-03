@@ -1,5 +1,4 @@
 # Bioinformatic tools
-----------
 
 
 **Primer3**: Primers design (http://bioinfo.ut.ee/primer3-0.4.0/)
