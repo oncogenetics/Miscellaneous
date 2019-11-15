@@ -1,0 +1,13 @@
+---
+title: 'My Title'
+author: "Bla bla"
+output: pdf_document
+bibliography: references.bib
+---
+
+Application written in the R programming language [@RCoreTeam] using the Shiny framework [@Chang2015].
+
+Adds references below from references.bib file which has 3 references, but only adds that are mentioned in this file.
+
+
+# REFERENCES
